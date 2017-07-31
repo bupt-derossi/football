@@ -1,0 +1,1 @@
+php /usr/local/etc/php/7.0
