@@ -4,7 +4,7 @@
  * User: dalong
  * Date: 17/7/23
  * Time: 上午11:31
- * brief : 抓去澳客网
+ * brief : 抓取澳客网
  */
 include_once '/private/var/www/football/phpQuery/phpQuery/phpQuery.php';
 include_once '/private/var/www/football/Config/OkoooConfig.php';
