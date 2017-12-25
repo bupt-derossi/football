@@ -88,4 +88,10 @@ CREATE TABLE odds_2017 (
   `create_dt` TIMESTAMP not NULL DEFAULT CURRENT_TIMESTAMP comment '创建日期',
   PRIMARY KEY (`id`),
   KEY `idx_gi` (`game_id`)
-)engine=innodb DEFAULT CHARSET=utf8 COMMENT='created by dalong 20171210 比赛赔率变化表';
+)engine=innodb DEFAULT CHARSET=utf8 COMMENT='created by dalong 20171210 比赛欧赔赔率变化表';
+
+CREATE TABLE asian_odds_2017 (
+  `id` bigint auto_increment comment '自增id',
+  `game_id` bigint not null DEFAULT 0 comment 'football_games id',
+  `am_rq` VARCHAR (10) NOT NULL DEFAULT '' comment ''
+)
