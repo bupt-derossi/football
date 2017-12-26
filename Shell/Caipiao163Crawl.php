@@ -103,12 +103,12 @@ foreach (pq(".gameSelect dl[gamedate={$date}] dd") as $index => $dd) {
 
     //如果比赛结束,更新结果
     if ($overFlag && $arr['result']) {
-        $sql = "update football_games set `result`={$arr['result']},`r_result`={$arr['r_result']}";
+        $sql = "update games set `result`={$arr['result']},`r_result`={$arr['r_result']}";
         $sql .= " where date between '{$beginTime}' and '{$endTime}' and number='{$arr['number']}'";
         $handle->query($sql);
     } else {
-        //先检索是否已经写入到football_games表中
-        $checkSql = "select id from football_games where date between '{$beginTime}' and '{$endTime}' and number='{$arr['number']}'";
+        //先检索是否已经写入到games表中
+        $checkSql = "select id from games where date between '{$beginTime}' and '{$endTime}' and number='{$arr['number']}'";
         $objRes = $handle->query($checkSql);
         $checkResult = $objRes->fetchAll(PDO::FETCH_ASSOC);
         if ($checkResult[0]['id'] > 0) {
@@ -117,7 +117,7 @@ foreach (pq(".gameSelect dl[gamedate={$date}] dd") as $index => $dd) {
             $handle->query($sql);
             $arrOddsUrl[$checkResult[0]['id']] = $oddsUrl;
         } else {
-            $sql = "insert into football_games (`date`,`number`,`type`,`host`,`guest`,`rq`) VALUES ";
+            $sql = "insert into games (`date`,`number`,`type`,`host`,`guest`,`rq`) VALUES ";
             $sql .= " ('{$arr['date']}','{$arr['number']}','{$arr['type']}','{$arr['host']}','{$arr['guest']}',{$arr['rq']})";
             $handle->query($sql);
             $id = $handle->lastInsertId();
