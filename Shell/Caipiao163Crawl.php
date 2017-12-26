@@ -109,7 +109,7 @@ foreach (pq(".gameSelect dl[gamedate={$date}] dd") as $index => $dd) {
     } else {
         //先检索是否已经写入到football_games表中
         $checkSql = "select id from football_games where date between '{$beginTime}' and '{$endTime}' and number='{$arr['number']}'";
-        //$objRes = $handle->query($checkSql);
+        $objRes = $handle->query($checkSql);
         $checkResult = $objRes->fetchAll(PDO::FETCH_ASSOC);
         if ($checkResult[0]['id'] > 0) {
             $sql = "update {$oddsTable} set jc_s={$arr['jc_s']},jc_p={$arr['jc_p']},jc_f={$arr['jc_f']},jc_rs={$arr['jc_rs']},jc_rp={$arr['jc_rp']},jc_rf={$arr['jc_rf']}";
