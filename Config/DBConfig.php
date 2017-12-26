@@ -10,7 +10,7 @@ class DBConfig {
     public static $MYSQL_CONFIG = [
         'host' => '127.0.0.1',
         'user' => 'root',
-        'password' => 'Danshengou@77',
+        'password' => 'Xiaojiayu@77',
         'port' => '',
     ];
 }
