@@ -44,8 +44,8 @@ foreach (pq(".gameSelect dl[gamedate={$date}] dd") as $index => $dd) {
             $arr['date'] = $date . ' ' . pq($span)->find('i')->text();
         }
         if ($key == 3) {
-            $arr['host'] = trim(preg_replace('/\[\d+\]/',pq($span)->find('em:first')->text(),''));
-            $arr['guest'] = trim(preg_replace('/\[\d+\]',pq($span)->find('em:last')->text(),''));
+            $arr['host'] = trim(preg_replace('/\[[\d+]\]/','',pq($span)->find('em:first')->text()));
+            $arr['guest'] = trim(preg_replace('/\[[\d+]\]/','',pq($span)->find('em:last')->text()));
         }
         if ($key == 4) {
             foreach (pq($span)->find('div') as $spanKey => $span5Div) {
