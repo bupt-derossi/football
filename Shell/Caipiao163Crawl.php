@@ -6,6 +6,7 @@
  * Time: 下午2:22
  * brief: 网易彩票数据抓取
  */
+error_reporting(E_ALL ^ E_NOTICE);
 include_once __DIR__ . '/../phpQuery/phpQuery/phpQuery.php';
 include_once __DIR__ . '/../Config/Caipiao163Config.php';
 $url = Caipiao163Config::$URL;
