@@ -7,7 +7,7 @@
  */
 namespace Pdo;
 use DBConfig;
-include_once '/private/var/www/football/Config/DBConfig.php';
+include_once __DIR__ . '/../Config/DBConfig.php';
 class PDOModel {
     public function connect() {
         $params['host'] = DBConfig\DBConfig::$MYSQL_CONFIG['host'];
