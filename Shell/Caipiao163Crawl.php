@@ -42,7 +42,7 @@ foreach (pq(".gameSelect dl[gamedate={$date}] dd") as $index => $dd) {
             $arr['type'] = pq($span)->find('a')->text();
         }
         if ($key == 2) {
-            $arr['date'] = $date . ' ' . pq($span)->find('i')->text();
+            $arr['date'] = date('Y-m-d',strtotime($date)) . ' ' . pq($span)->find('i')->text();
         }
         if ($key == 3) {
             $arr['host'] = trim(preg_replace('/\[(\d+)\]/','',pq($span)->find('em:first')->text()));
