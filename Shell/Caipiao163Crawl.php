@@ -6,11 +6,11 @@
  * Time: 下午2:22
  * brief: 网易彩票数据抓取
  */
-include_once '/private/var/www/football/phpQuery/phpQuery/phpQuery.php';
-include_once '/private/var/www/football/Config/Caipiao163Config.php';
+include_once __DIR__ . '/../phpQuery/phpQuery/phpQuery.php';
+include_once __DIR__ . '/../Config/Caipiao163Config.php';
 $url = Caipiao163Config::$URL;
 use Pdo\PDOModel;
-include_once "/private/var/www/football/Model/PDOModel.php";
+include_once __DIR__ . "/../Model/PDOModel.php";
 $objPdo = new Pdo\PDOModel();
 $handle = $objPdo->connect();
 $beginTime = date('Ymd H:i:s',strtotime(date('Ymd')));

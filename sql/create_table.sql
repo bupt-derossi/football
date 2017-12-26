@@ -48,8 +48,8 @@ create  table bf_real_time_data (
 	key `idx_os_ct` (`vict_odds`,`create_time`)
 )engine=innodb DEFAULT CHARSET=utf8 COMMENT='create by yuhualong 20170703，必发赔率投注变化基本表－按月分表';
 
-DROP TABLE football_games;
-CREATE TABLE football_games (
+DROP TABLE games;
+CREATE TABLE games (
   `id` bigint auto_increment comment '自增id',
   `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '比赛时间',
   `number` VARCHAR (10) not null default '0' comment '比赛编号,001',
