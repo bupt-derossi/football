@@ -113,8 +113,9 @@ foreach (pq(".gameSelect dl[gamedate={$date}] dd") as $index => $dd) {
         $objRes = $handle->query($checkSql);
         $checkResult = $objRes->fetchAll(PDO::FETCH_ASSOC);
         if ($checkResult[0]['id'] > 0) {
+            $id = $checkResult[0]['id'];
             $sql = "update {$oddsTable} set jc_s={$arr['jc_s']},jc_p={$arr['jc_p']},jc_f={$arr['jc_f']},jc_rs={$arr['jc_rs']},jc_rp={$arr['jc_rp']},jc_rf={$arr['jc_rf']}";
-            $sql .= " where id={$checkResult[0]['id']}";
+            $sql .= " where id={$id}";
             $handle->query($sql);
             $arrOddsUrl[$checkResult[0]['id']] = $oddsUrl;
         } else {
