@@ -114,9 +114,11 @@ foreach (pq(".gameSelect dl[gamedate={$date}] dd") as $index => $dd) {
         $checkResult = $objRes->fetchAll(PDO::FETCH_ASSOC);
         if ($checkResult[0]['id'] > 0) {
             $id = $checkResult[0]['id'];
+            /*
             $sql = "update {$oddsTable} set jc_s={$arr['jc_s']},jc_p={$arr['jc_p']},jc_f={$arr['jc_f']},jc_rs={$arr['jc_rs']},jc_rp={$arr['jc_rp']},jc_rf={$arr['jc_rf']}";
             $sql .= " where id={$id}";
             $handle->query($sql);
+            */
             $arrOddsUrl[$checkResult[0]['id']] = $oddsUrl;
         } else {
             $sql = "insert into games (`date`,`number`,`type`,`host`,`guest`,`rq`) VALUES ";
@@ -126,10 +128,11 @@ foreach (pq(".gameSelect dl[gamedate={$date}] dd") as $index => $dd) {
             $arrOddsUrl[$id] = $oddsUrl;
             $arrOver[$id] = $overFlag;
         }
-
         $oddsSql = "insert into {$oddsTable} (`game_id`,`jc_s`,`jc_p`,`jc_f`,`jc_rs`,`jc_rp`,`jc_rf`) VALUES ";
         $oddsSql .= " ({$id},{$arr['jc_s']},{$arr['jc_p']},{$arr['jc_f']},{$arr['jc_rs']},{$arr['jc_rp']},{$arr['jc_rf']})";
         $handle->query($oddsSql);
+
+
     }
 }
 /*
