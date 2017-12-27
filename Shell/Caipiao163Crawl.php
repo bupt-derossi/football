@@ -15,7 +15,7 @@ include_once __DIR__ . "/../Model/PDOModel.php";
 $objPdo = new Pdo\PDOModel();
 $handle = $objPdo->connect();
 $beginTime = date('Ymd');
-$endTime = date('Ymd',"+1 day");
+$endTime = date('Ymd',strtotime("+1 day"));
 
 phpQuery::newDocumentFile($url);
 $date = date('Ymd');
