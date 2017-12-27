@@ -14,8 +14,8 @@ use Pdo\PDOModel;
 include_once __DIR__ . "/../Model/PDOModel.php";
 $objPdo = new Pdo\PDOModel();
 $handle = $objPdo->connect();
-$beginTime = date('Ymd');
-$endTime = date('Ymd',strtotime("+1 day"));
+$beginTime = date('Y-m-d H:i:s',strtotime(date('Ymd')));
+$endTime = date('Y-m-d H:i:s',strtotime(date('Ymd') . "+1 day"));
 
 phpQuery::newDocumentFile($url);
 $date = date('Ymd');
